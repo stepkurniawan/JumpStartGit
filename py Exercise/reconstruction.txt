@@ -1,0 +1,2 @@
+Id+gender+height+score​
+1+Non-binary+1.95+0.745​
