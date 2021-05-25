@@ -21,7 +21,7 @@ import time
 def read_file(file_path):
     '''Returns content of a file given in file path'''
     
-    with open(file=file_path, mode='r') as f:
+    with open(file=file_path, mode='r') as file:
         # read content from file
         content = f.readlines()
     
@@ -37,9 +37,7 @@ def clean_text(text):
 def replace_wrong(text):
     '''Returns text with data replaces for known patterns'''
 
-    clean_dict = {'o': ['ö', 'oe'],
-                  'a': ['ä', 'ae'],
-                  ';': [':(', ':)', ':p', ':d'],
+    clean_dict = {';': [':(', ':)', ':p', ':d'],
                   '.': [',', '_']
                  }
 
@@ -70,7 +68,6 @@ def process_text(text):
     cleaned_data = clean_text(text)
 
     # correct capitalization
-    cleaned_data = cleaned_data.lower()
 
     # replace values with correct ones
     consistent_data = replace_wrong(cleaned_data)
@@ -99,7 +96,6 @@ def main(file_path):
     result = process_text(content)
    
     # write result to file
-    write_result(result, 'result.csv')
 
 
 if __name__ == '__main__':
